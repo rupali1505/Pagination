@@ -69,10 +69,7 @@ export default function Pagination() {
           Previous
         </button>
         <button style={{ margin: "0 10px" }}>{currentPage}</button>
-        <button
-          onClick={handleNext}
-          style={{ opacity: currentPage === 1 ? 0.5 : 1, cursor: "pointer" }}
-        >
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
           Next
         </button>
       </div>
