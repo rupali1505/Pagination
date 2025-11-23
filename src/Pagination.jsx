@@ -62,11 +62,17 @@ export default function Pagination() {
       <EmployeeTable employees={currentData} />
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={handlePrev} disabled={currentPage === 1}>
+        <button
+          onClick={handlePrev}
+          style={{ opacity: currentPage === 1 ? 0.5 : 1, cursor: "pointer" }}
+        >
           Previous
         </button>
         <button style={{ margin: "0 10px" }}>{currentPage}</button>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
+        <button
+          onClick={handleNext}
+          style={{ opacity: currentPage === 1 ? 0.5 : 1, cursor: "pointer" }}
+        >
           Next
         </button>
       </div>
