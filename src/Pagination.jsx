@@ -46,13 +46,13 @@ export default function Pagination() {
 
   const handlePrev = () => {
     if (currentPage > 1) {
-      setCurrentPage((prev) => Math.max(prev - 1, 1));
+      setCurrentPage((prev) =>prev - 1);
     }
   };
 
   const handleNext = () => {
     if (currentPage < totalPages) {
-      setCurrentPage((prev)=>Math.min(prev + 1,totalPages));
+      setCurrentPage((prev)=>prev + 1);
     }
   };
 
