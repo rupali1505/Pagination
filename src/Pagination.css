@@ -42,3 +42,6 @@ button {
   padding: 0 12px;
   cursor: pointer;
 }
+/* button:disabled{
+  border:4px solid black
+} */

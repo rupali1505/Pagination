@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
-import  './Pagination.css';
-
+import "./Pagination.css";
 
 export function EmployeeTable({ employees }) {
   return (
     <table className="table">
-      <thead >
+      <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
         </tr>
-      </thead >
-      <tbody >
+      </thead>
+      <tbody>
         {employees.map((employee) => (
           <tr key={employee.id}>
             <td>{employee.id}</td>
@@ -38,7 +37,7 @@ export default function Pagination() {
     fetch(url)
       .then((res) => res.json())
       .then((json) => setData(json))
-      .catch((error) => console.error('failed to fetch data', error));
+      .catch(() => alert("failed to fetch data"));
   }, []);
 
   const totalPages = Math.ceil(data.length / pageSize);
@@ -46,11 +45,15 @@ export default function Pagination() {
   const currentData = data.slice(startIndex, startIndex + pageSize);
 
   const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prev) => Math.max(prev - 1, 1));
+    }
   };
 
   const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    if (currentPage < totalPages) {
+      setCurrentPage((prev)=>Math.min(prev + 1,totalPages));
+    }
   };
 
   return (
@@ -59,9 +62,13 @@ export default function Pagination() {
       <EmployeeTable employees={currentData} />
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={handlePrev} disabled={currentPage === 1}>Previous</button>
+        <button onClick={handlePrev} disabled={currentPage === 1}>
+          Previous
+        </button>
         <button style={{ margin: "0 10px" }}>{currentPage}</button>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>Next</button>
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
+          Next
+        </button>
       </div>
     </div>
   );
