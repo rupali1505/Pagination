@@ -1,0 +1,44 @@
+.table {
+  width: 80vw;
+  border-bottom: 2px solid rgb(10, 155, 141);
+  border-left: 1px solid rgba(128, 128, 128, 0.3);
+  border-right: 1px solid rgba(128, 128, 128, 0.3);
+  border-collapse: collapse;
+  height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+thead {
+  background-color: rgb(10, 155, 141);
+  color: white;
+  font-size: small;
+  height: 30px;
+  
+}
+
+tbody {
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th,
+td {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-left: none;
+  border-right: none;
+  vertical-align: baseline;
+  /* padding: 6px 12px; */
+  text-align: start;
+}
+
+button {
+  background-color: rgb(10, 155, 141);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  padding: 0 12px;
+  cursor: pointer;
+}
