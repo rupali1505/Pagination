@@ -38,7 +38,7 @@ export default function Pagination() {
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch(() => alert("failed to fetch data"));
-  }, []);
+  }, [currentPage]);
 
   const totalPages = Math.ceil(data.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
