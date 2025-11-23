@@ -38,7 +38,7 @@ export default function Pagination() {
     fetch(url)
       .then((res) => res.json())
       .then((json) => setData(json))
-      .catch((error) => console.error("failed to fetch data",error));
+      .catch((error) => console.error('failed to fetch data', error));
   }, []);
 
   const totalPages = Math.ceil(data.length / pageSize);
@@ -54,18 +54,14 @@ export default function Pagination() {
   };
 
   return (
-    <div style={{ padding: 20,  textAlign:"center"}}>
+    <div style={{ padding: 20, textAlign: "center" }}>
       <h2>Employee Data Table</h2>
       <EmployeeTable employees={currentData} />
 
       <div style={{ marginTop: 20 }}>
-        <button onClick={handlePrev} disabled={currentPage === 1}>
-          Previous
-        </button>
+        <button onClick={handlePrev} disabled={currentPage === 1}>Previous</button>
         <button style={{ margin: "0 10px" }}>{currentPage}</button>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
-          Next
-        </button>
+        <button onClick={handleNext} disabled={currentPage === totalPages}>Next</button>
       </div>
     </div>
   );
